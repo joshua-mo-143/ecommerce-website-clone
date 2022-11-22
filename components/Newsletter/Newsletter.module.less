@@ -1,0 +1,31 @@
+.newsletterContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+    width: 90%;
+    gap: 1rem;
+    margin: auto;
+    
+    @media screen and (min-width: 500px) {
+        font-size: 1.5rem;
+    }
+
+    .newsletterForm {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        .newsletterInput {
+            padding: .25rem;
+
+            @media screen and (min-width: 500px) {
+            width: 50%;
+            padding: .75rem;
+            font-size: 1.5rem;
+            }
+        }
+    }
+}

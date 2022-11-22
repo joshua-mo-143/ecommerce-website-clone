@@ -1,0 +1,94 @@
+
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .navigationMenu {
+        flex: 5;
+        list-style-type: none;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        flex: 1.5;
+        justify-content: flex-end;
+        margin-right: 1em;
+        padding: 0 1rem;
+        gap: 0;
+        font-size: .8rem;
+        li {
+            padding: 0 1rem;
+            transition: background-color .3s ease-in-out, transform .35s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-3px);
+            }
+        }
+    }
+
+    .navigationMain {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #d3d3d3;
+        height: 50px;
+        .navigationLogo {
+            flex: 1;
+            text-align: center;
+            margin-left: 1rem;
+        }
+        .navigationProducts {
+            flex: 9;
+            list-style-type: none;
+            text-align: center;
+            flex-direction: row;
+            gap: 2rem;
+            justify-content: center;
+            margin-right: 10%;
+            display: none;
+            z-index: 10;
+
+            @media screen and (min-width: 500px) {
+                display: flex;
+            }
+    
+            .navigationItem {
+                padding: .25rem 1rem;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                li {
+                    transition: background-color .3s ease-in-out, transform .35s ease-in-out, bottom-border .5s ease-in-out;
+                cursor: pointer;
+
+    
+                &:hover {
+                    // background-color: grey;
+                    transform: translateY(-3px);
+                    border-bottom: 1px solid #000;
+                }
+                }
+
+                .navigationDropdownItem {
+                    position: absolute;
+                    top: 1.5rem;
+                    background-color: white;
+                    font-size: 0.9rem;
+                    .navigationDropdownItemText {
+                        padding: 0.25rem;
+                        transition: all 0.25s ease-in-out;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #d3d3d3;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
