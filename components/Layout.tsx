@@ -8,6 +8,7 @@ type Props = {
 }
 
 const Layout = ({children}: Props) => {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,6 +19,7 @@ const Layout = ({children}: Props) => {
       <main className={styles.main}>
         <Navigation/>
         {children}
+
       </main>
 
       <footer>
