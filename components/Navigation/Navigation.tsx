@@ -17,7 +17,7 @@ const Navigation = (props: Props) => {
       </div>
         <ul className={styles.navigationProducts}>
             <NavigationItem name="New In"/>
-            <NavigationItem name="Categories"/>
+            <NavigationItem name="Brands"/>
             <NavigationItem name="Men's"/>
             <NavigationItem name="Women's"/>
             <NavigationItem name="Kids"/>

@@ -1,0 +1,52 @@
+.productsListContainer h2 {
+  text-align: center;
+}
+.productsListContainer .productsList {
+  width: 80%;
+  height: 15rem;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+.productsListContainer .productsList .productContainer img {
+  object-fit: contain;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  box-shadow: 5px 5px #d3d3d3;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.productsListContainer .productsList .productContainer .productText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  line-height: 0;
+  gap: 0;
+}
+.productsListContainer .productsList .productContainer .productText .productData {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.productsListContainer .productsList .productContainer .productText .productData p {
+  line-height: 0;
+}
+.productsListContainer .productsList .productContainer .productText .productData .productOptions {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.productsListContainer .productsList .productContainer .productText .productData .productOptions button {
+  border: none;
+  background-color: white;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.productsListContainer .productsList .productContainer .productText .productData .productOptions button:hover {
+  background-color: #d3d3d3;
+}

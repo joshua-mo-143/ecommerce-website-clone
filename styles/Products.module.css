@@ -1,0 +1,14 @@
+.productPageFilterContainer {
+  height: 50px;
+}
+.productPageFilterContainer .productPageFilterForm {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  justify-content: center;
+}
+.productPageFilterContainer .productPageFilterForm label {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
