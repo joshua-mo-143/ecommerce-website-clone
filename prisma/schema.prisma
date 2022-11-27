@@ -14,17 +14,38 @@ model Product {
   id String @id @default(cuid()) 
   name String
   desc String
-  price String
+  price Int
   imgsrc String
+  brandName String
+  favourited Favourite[]
+
+  brand Brand @relation(fields: [brandName], references: [name])
+}
+
+model Brand {
+  id String @id @default(cuid()) 
+  name String @unique
+  products Product[]
+}
+
+model Favourite {
+  productId String
+  userId String
+
+  product Product @relation(field: [productId], references: [id])
+  user User @relation (field: [userId], references: [id])
 }
 
 model User {
   id            String    @id @default(cuid())
   name          String
   email         String    @unique
+  image         String
   emailVerified DateTime?
   accounts      Account[]
   sessions      Session[]
+  favourited Favourite[]
+  
 }
 
 model Account {

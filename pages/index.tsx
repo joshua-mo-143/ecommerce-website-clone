@@ -7,12 +7,10 @@ import ProductsListHomepage from '../components/ProductsListHomepage/ProductsLis
 import {PrismaClient} from '@prisma/client';
 
 interface Product {
-  id: string;
   name: string;
   desc: string;
-  price: Decimal;
+  price: string;
   imgsrc: string;
-  dateCreated: Date;
 }
 
 type Props = {
