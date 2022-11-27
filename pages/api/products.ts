@@ -5,14 +5,7 @@ export const getProductData = async (req: NextApiRequest, res: NextApiResponse) 
     let prisma = new PrismaClient();
 
     let result = await prisma.product.findMany({
-        where: {},
-        select: {
-            name: true,
-            desc: true,
-            price: true,
-            imgsrc: true,
-            id: false
-        }
+        where: {}
     }
     );
 

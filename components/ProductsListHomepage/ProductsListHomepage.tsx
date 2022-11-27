@@ -23,7 +23,7 @@ const ProductsListHomepage = ({products}: Props) => {
         <h2>Check out our products</h2>
         <div className={styles.productsList}>
         {products.map((product: any) => (
-          <ProductItem name={product.name} price={product.price} imgsrc={product.imgsrc} desc={product.desc}/>
+          <ProductItem name={product.name} price={product.price} imgsrc={product.imgsrc} desc={product.desc} id={product.id}/>
         ))}
         </div>
     </div>
