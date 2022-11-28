@@ -5,12 +5,15 @@ import type { GetStaticProps, NextPage } from 'next'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { useSession } from 'next-auth/react'
+import { userAgent } from 'next/server'
 
 type Props = {
     products: object[]
 }
 
 const index: NextPage<Props> = ({products}: Props) => {
+  console.log(products);
   return (
     <Layout>
         <h1>View Products</h1>
@@ -40,9 +43,8 @@ const index: NextPage<Props> = ({products}: Props) => {
 export default index
 
 export const getStaticProps: GetStaticProps = async () => {
-    let res = await fetch('http://localhost:3000/api/products');
-    let products = await res.json();
-  
+    let productRes = await fetch('http://localhost:3000/api/products');
+    let products = await productRes.json();
     return {
       props: {
         products

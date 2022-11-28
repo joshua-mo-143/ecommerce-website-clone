@@ -1,10 +1,10 @@
-import { Decimal } from '@prisma/client/runtime'
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import HeroHeader from '../components/HeroHeader/HeroHeader'
 import Layout from '../components/Layout'
 import NewsletterSubscribe from '../components/Newsletter/NewsletterSubscribe'
 import ProductsListHomepage from '../components/ProductsListHomepage/ProductsListHomepage'
-import {PrismaClient} from '@prisma/client';
+import { useSession } from 'next-auth/react'
+import { prisma, PrismaClient } from '@prisma/client'
 
 interface Product {
   name: string;
@@ -14,30 +14,37 @@ interface Product {
 }
 
 type Props = {
-  products: object[];
+  productData: object[];
+  userData: object;
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  let res = await fetch('http://localhost:3000/api/products');
-  let products = await res.json();
+export const Home: NextPage<Props> = ({productData}: Props) => {
 
-  return {
-    props: {
-      products
-    }
-  }
-}
-
-export const Home: NextPage<Props> = ({products}: Props) => {
-
-  console.log(products);
   return (
     <Layout>
       <HeroHeader/>
-      <ProductsListHomepage products={products}/>
+      <ProductsListHomepage products={productData}/>
       <NewsletterSubscribe/>
     </Layout>
   )
 }
 
 export default Home
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const {data: session} = useSession();
+  let userData;
+  if (session) {
+    let meme = await fetch('http://localhost:3000/api/user', {body: JSON.stringify({email: session.user.email})});
+    userData = meme.json();
+  }
+
+  let productRes = await fetch('http://localhost:3000/api/products');
+  let productData = await productRes.json();
+
+  return {
+    props: {
+      productData
+    }
+  }
+}

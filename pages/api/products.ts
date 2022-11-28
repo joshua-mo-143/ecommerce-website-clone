@@ -5,7 +5,10 @@ export const getProductData = async (req: NextApiRequest, res: NextApiResponse) 
     let prisma = new PrismaClient();
 
     let result = await prisma.product.findMany({
-        where: {}
+        where: {},
+        include: {
+            favourited: true
+        }
     }
     );
 

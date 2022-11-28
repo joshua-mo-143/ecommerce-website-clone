@@ -5,6 +5,7 @@ import Navigation from './Navigation/Navigation';
 
 type Props = {
     children: React.ReactNode;
+    
 }
 
 const Layout = ({children}: Props) => {
